@@ -57,3 +57,63 @@ function largest(array) {
 }
 
 largest(largestNumbers);
+
+//EXERCISES PART 2
+
+//1
+var birthYears = [1989, 1989, 1990, 1991];
+
+function commonYear(array) {
+    var object = {};
+    for (var i = 0; i < birthYears.length; i++) {
+        var currentYear = array[i];
+        if (!object[currentYear]) {
+            object[currentYear] = 0;
+        }
+        object[currentYear]++;
+    }
+    return object;
+}
+
+console.log(commonYear(birthYears));
+
+//2
+var string = "This is a random string."
+
+function charCount(words) {
+    var object = {};
+    for (var i = 0; i < words.length; i++) {
+        var currentChar = words[i];
+        if (!object[currentChar]) {
+            object[currentChar] = 0;
+        }
+        object[currentChar]++;
+    }
+    return object;
+}
+
+console.log(charCount(string));
+
+//3
+var olympics = [{country: "USA", time: 12}, {country: "Japan", time: 11}, {country: "USA", time: 14}, {country: "Japan", time: 15}, {country: "Ireland", time: 22}, {country: "Ireland", time: 10}];
+
+function bestTime(times) {
+    var bestTimes = {};
+    for (var i = 0; i < times.length; i++) {
+        var currentTime = times[i];
+        if (!bestTimes[currentTime.country]) {
+            //if we haven't seen country before record its time
+            //needed to reach deeper into objects for code to make sense!
+            bestTimes[currentTime.country] = currentTime.time;
+        } else if (currentTime.time < bestTimes[currentTime.country]) {
+            bestTimes[currentTime.country] = currentTime.time;
+        }
+    }
+    console.log(bestTimes);
+    return bestTimes;
+}
+
+bestTime(olympics);
+//4
+
+
