@@ -103,7 +103,7 @@ function bestTime(times) {
         var currentTime = times[i];
         if (!bestTimes[currentTime.country]) {
             //if we haven't seen country before record its time
-            //needed to reach deeper into objects for code to make sense!
+            //needed to reach deeper into objects for code to make sense! you can redefine these and attach to variables
             bestTimes[currentTime.country] = currentTime.time;
         } else if (currentTime.time < bestTimes[currentTime.country]) {
             bestTimes[currentTime.country] = currentTime.time;
@@ -114,6 +114,21 @@ function bestTime(times) {
 }
 
 bestTime(olympics);
+
 //4
+var positiveNegative = [-1, 5, -6, 7, -11, 14, 56, -22];
 
+function positiveNegativeCount(array) {
+    var count = {positive: 0, negative: 0}
+    for (var i = 0; i < array.length; i++) {
+        var number = array[i];
+        if (number > 0) {
+            count.positive++;
+        } else if (number < 0) {
+            count.negative++;
+        }
+    }
+    return count;
+}
 
+console.log(positiveNegativeCount(positiveNegative));
